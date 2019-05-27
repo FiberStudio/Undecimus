@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <UIProgressHUD.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "common.h"
 
 #define _assert(test, message, fatal) do \
@@ -48,6 +49,43 @@ while (false)
 @property (weak, nonatomic) IBOutlet UITextView *outputView;
 @property (readonly) JailbreakViewController *sharedController;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *goButtonSpacing;
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+@property (weak, nonatomic) IBOutlet UIView *jailbreakView;
+@property (weak, nonatomic) IBOutlet UILabel *swipeUpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uOLabel;
+@property (weak,nonatomic) IBOutlet UIView *settingsButtonView;
+@property (weak, nonatomic) IBOutlet UIView *creditsButtonView;
+@property (weak, nonatomic) IBOutlet UIView *settingsTransitionView;
+@property (weak, nonatomic) IBOutlet UIView *creditsTransitionView;
+@property (weak,nonatomic) IBOutlet UINavigationBar *settingsNavBar;
+@property (weak,nonatomic) IBOutlet UINavigationBar *creditsNavBar;
+@property (weak,nonatomic) IBOutlet UIProgressView *jailbreakProgressView;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *mainViewTopConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *mainViewBottomConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *settingsViewTopConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *settingsViewBottomConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *creditsViewTopConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *creditsViewBottomConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *jailbreakViewTopConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *jailbreakViewBottomConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *creditsHapticTouchBottomConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *settingssHapticTouchBottomConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *swipeUpLabelBottomConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *undecimusLogoCentreConstraint;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *jailbreakButtonLeftSpacing;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *jailbreakButttonRightSpacing;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *consoleLogLeftSpacing;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *consoleLogRightSpacing;
+@property (weak,nonatomic) IBOutlet UILabel *uncoverDescriptionLabel;
+@property (weak,nonatomic) IBOutlet UILabel *byLabel;
+@property (weak,nonatomic) IBOutlet UILabel *firstAndLabel;
+@property (weak,nonatomic) IBOutlet UILabel *uiByLabel;
+@property (weak,nonatomic) IBOutlet UILabel *secondAndLabel;
+@property (weak,nonatomic) IBOutlet UILabel *thirdAndLabel;
+@property (weak,nonatomic) IBOutlet UILabel *jailbreakViewUOLabel;
+@property (weak,nonatomic) IBOutlet UIActivityIndicatorView *jailbreakActivityIndicator;
+
+
 @property (assign) BOOL canExit;
 
 double uptime(void);
@@ -57,6 +95,8 @@ NSString *hexFromInt(NSInteger val);
 - (IBAction)tappedOnJailbreak:(id)sender;
 +(JailbreakViewController*)sharedController;
 - (void)appendTextToOutput:(NSString*)text;
+- (void)updateStatus;
+-(void)darkMode;
 
 @end
 
